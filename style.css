@@ -96,10 +96,11 @@ h2 {
 
 .top-left-text {
   position: static;       /* remove absolute */
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column; /* stack FHS / Coding Club */
   line-height: 1.1;       /* tighten line spacing */
+  font-size: 24px;
 }
 
 .top-left-text p {
