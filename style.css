@@ -52,7 +52,7 @@ h2 {
 
 .Hero_image img {       /* ensure the image sets the container height */
   width: 100%;
-  height: auto;
+  height: 800px;
   display: block;
 }
 
@@ -113,7 +113,7 @@ h2 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   background-color: white;
   color: black;
-  min-height: 300px;
+  min-height: 175px;
   min-width: 600px;
 }
 
@@ -127,4 +127,8 @@ h2 {
 
 #announcementCarousel .card-title {
     font-size: 3.0rem;
+}
+
+.background {
+  background-color: #77b9d0;
 }
