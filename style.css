@@ -1,5 +1,21 @@
+.top-left {
+  position: absolute;   /* keep it anchored in the hero */
+  top: 0;
+  left: 0;
+  display: flex;        /* flex row */
+  align-items: center;  /* vertical alignment vs logo */
+  gap: 8px;             /* space between logo and text */
+  padding: 12px;        /* inset from top/left edges */
+}
+
+
 .header {
     text-align: center;
+}
+
+.Title {
+    margin: 0;
+    font-size: 60px;
 }
 
 .container {
@@ -27,7 +43,65 @@ h2 {
     border-top: 1px solid #ccc;
 }
 
-.Hero {
-    margin: 40px;
+.Hero_image {           /* anchor overlay to the hero container */
+  position: relative;
+  margin-bottom: 40px;  /* keeps the gap before Announcements */
+  border-radius: 16px;
+  overflow: hidden;
 }
 
+.Hero_image img {       /* ensure the image sets the container height */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero_overlay {
+  position: absolute;
+  inset: 0;
+  padding: 20% 24px 24px;
+  text-align: center;
+  color: #fff;
+  /* gradient only if you're keeping the <img> element */
+  background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45));
+}
+
+.hero_overlay h1,
+.hero_overlay h2 {
+  margin: 0;                /* remove default large margins */
+  line-height: 1.2;         /* tighter text */
+}
+
+.slide-up {
+    animation: slide-up 0.5s ease-in-out;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.top-left img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;  /* keep proportions */
+  /* remove any padding-left here */
+}
+
+.top-left-text {
+  position: static;       /* remove absolute */
+  text-align: left;
+  display: flex;
+  flex-direction: column; /* stack FHS / Coding Club */
+  line-height: 1.1;       /* tighten line spacing */
+}
+
+.top-left-text p {
+  margin: 0;              /* remove default paragraph margins */
+}
