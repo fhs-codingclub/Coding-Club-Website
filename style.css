@@ -111,8 +111,9 @@ h2 {
   border: none;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  background-color: white;
-  color: black;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
   min-height: 175px;
   min-width: auto;
 }
@@ -127,5 +128,158 @@ h2 {
 
 #announcementCarousel .card-title {
     font-size: 3.0rem;
+}
+
+.background {
+  background-color: #427082;
+}
+
+/* Zigzag Timeline Styles - Horizontal Layout */
+.zigzag-timeline {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+  padding: 60px 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+  max-width: 100%;
+  min-height: 300px;
+}
+
+/* Horizontal line through the middle */
+.zigzag-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 4px;
+  background: #d1d5db;
+  transform: translateY(-50%);
+  z-index: 0;
+  border-radius: 2px;
+}
+
+/* Each event container */
+.zigzag-timeline .event {
+  position: relative;
+  min-width: 220px;
+  max-width: 250px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  justify-content: center;
+}
+
+/* Odd events (above the line) */
+.zigzag-timeline .event:nth-child(odd) {
+  padding-bottom: calc(12% + 1px);
+  padding-top: 0;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Even events (below the line) */
+.zigzag-timeline .event:nth-child(even) {
+  padding-top: calc(12% + 1px);
+  padding-bottom: 0;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* The connecting dot on the timeline */
+.zigzag-timeline .event .dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #4270FF;
+  border: 4px solid rgba(66, 112, 130, 0.2);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 3px #384553;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Position dot on the timeline for odd events (above) */
+.zigzag-timeline .event:nth-child(odd) .dot {
+  bottom: calc(50% + 1px);
+}
+
+/* Position dot on the timeline for even events (below) */
+.zigzag-timeline .event:nth-child(even) .dot {
+  top: calc(50% + 1px);
+}
+
+/* Hover effect on dot */
+.zigzag-timeline .event:hover .dot {
+  transform: translateX(-50%) scale(1.4);
+  box-shadow: 0 0 0 5px rgba(66, 112, 130, 0.4);
+}
+
+/* Event card styling - transparent with subtle backdrop */
+.zigzag-timeline .event .card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 15px 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.zigzag-timeline .event .card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.zigzag-timeline .event .card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.zigzag-timeline .event .card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #f0f0f0;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .zigzag-timeline {
+    padding: 40px 10px;
+    gap: 20px;
+  }
+  
+  .zigzag-timeline .event {
+    min-width: 180px;
+    max-width: 200px;
+  }
+  
+  .zigzag-timeline .event .card h3 {
+    font-size: 1rem;
+  }
+  
+  .zigzag-timeline .event .card p {
+    font-size: 0.85rem;
+  }
 }
 
