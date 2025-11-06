@@ -1,3 +1,11 @@
+/* main background color for site is #427082 */
+body {
+  color: #FFF;
+}
+.card {
+  border: none;
+}
+
 .top-left {
   position: absolute;   /* keep it anchored in the hero */
   top: 0;
@@ -37,14 +45,11 @@ h2 {
 
 .footer {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     border-top: 1px solid #ccc;
+    padding-top: 10px;
 }
 .footer p{
-    padding: 10px;
+    padding: 12px;
 }
 
 .Hero_image {           /* anchor overlay to the hero container */
