@@ -64,7 +64,6 @@ h2 {
 .Hero_image {           /* anchor overlay to the hero container */
   position: relative;
   margin-bottom: 40px;  /* keeps the gap before Announcements */
-  border-radius: 16px;
   overflow: hidden;
 }
 
