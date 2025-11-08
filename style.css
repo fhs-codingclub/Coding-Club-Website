@@ -2,18 +2,14 @@
 body {
   color: #FFF;
 }
+.pfp {
+  width: 15rem !important;
+  height: auto !important;
+}
 .card {
   border: none;
 }
 
-.pfp1 {
-  /* Styles for Erik's profile picture */
-  
-}
-
-.pfp2 {
-  /* Styles for AJTabJS's profile picture */
-}
 
 .top-left {
   position: absolute;   /* keep it anchored in the hero */
