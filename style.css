@@ -8,8 +8,15 @@ body {
   width: 15rem !important;
   height: auto !important;
 }
+
 .card {
   border: none;
+  background-color: #427082
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease;
 }
 
 
@@ -278,7 +285,7 @@ h2 {
 }
 
 /* Phones */
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   .zigzag-timeline {
     padding: 40px 10px;
   }
