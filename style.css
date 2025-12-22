@@ -33,11 +33,12 @@ body {
 
 .header {
     text-align: center;
+    
 }
 
 .Title {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 3.75rem);     /* 2rem at 320px, 5vw at 1280px, 3.75rem at 1920px */
+    font-size: clamp(2rem, 5vw, 3.75rem);     
 }
 
 .container {
@@ -75,6 +76,7 @@ h2 {
 .Hero_image img {   
   width: 100%;
   height: auto;
+  object-fit: contain; /* Prevents cutting of images */
   display: block;
 }
 
@@ -84,7 +86,6 @@ h2 {
   padding: 20% 24px 24px;
   text-align: center;
   color: #fff;
-  /* gradient only if you're keeping the <img> element */
   background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45));
 }
 
@@ -299,7 +300,71 @@ h2 {
   }
 }
 
+/* Media Queries for Responsiveness */
 
+/* For tablets and smaller screens (max-width: 900px) */
+@media (max-width: 900px) {
+  .Title {
+    font-size: 2.5rem;
+  }
+  .top-left img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .top-left-text {
+    font-size: 1.1rem;
+  }
+  #announcementCarousel .card {
+    min-width: 200px;
+    max-width: 95vw;
+  }
+  #announcementCarousel .card-title {
+    font-size: 1.2rem;
+  }
+  #announcementCarousel .card-text {
+    font-size: 1rem;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; /* Add spacing between items */
+  }
+}
+
+/* For phones and smaller screens (max-width: 600px) */
+@media (max-width: 600px) {
+  .Title {
+    font-size: 1.5rem;
+  }
+  .top-left img {
+    width: 2rem;
+    height: 2rem;
+  }
+  .top-left-text {
+    font-size: 0.9rem;
+  }
+  .Hero_image img {
+    height: 30vh;
+    max-height: 30vh;
+    min-height: 120px;
+  }
+  #announcementCarousel .card {
+    min-width: 120px;
+    max-width: 99vw;
+  }
+  #announcementCarousel .card-title {
+    font-size: 1rem;
+  }
+  #announcementCarousel .card-text {
+    font-size: 0.8rem;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .member-card {
   position: relative;
@@ -349,4 +414,10 @@ h2 {
   flex-wrap: wrap; 
   gap: 20px; 
   justify-content: center; 
+}
+
+@media (max-width: 768px) {
+  .member-card {
+    flex: 1 1 calc(45% - 20px); 
+  }
 }
