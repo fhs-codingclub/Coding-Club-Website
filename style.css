@@ -74,12 +74,12 @@ body {
   left: 0 !important;
   right: auto !important;
   bottom: auto !important;
-  transform: none !important;
   display: flex;        
   align-items: center;  
   gap: 0.5rem;             
   padding: 16px;
   z-index: 10;          /* Ensures it stays above the overlay text */
+  transform: translateY(-29rem);
 }
 
 .Hero_image .top-left {
@@ -88,7 +88,6 @@ body {
   left: 0 !important;
   right: auto !important;
   bottom: auto !important;
-  transform: none !important;
 }
 
 @media (max-width: 600px) {
@@ -390,6 +389,8 @@ h2 {
   }
 }
 
+
+
 /* Tablet (max-width: 900px) */
 @media (max-width: 900px) {
   .Title {
@@ -403,9 +404,11 @@ h2 {
   .top-left img {
     width: 3rem;
     height: 3rem;
+    transform: translateY(20rem);
   }
   .top-left-text {
     font-size: 1.1rem;
+    transform: translateY(20rem);
   }
   #announcementCarousel .card {
     min-width: 200px;
@@ -481,5 +484,19 @@ h2 {
   .member-card {
     flex: 1 1 100%;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-left {
+    transform: translateY(0rem) !important; /* undo the -29rem */
+  }
+
+  .top-left img {
+    transform: translateY(-6rem) !important;
+  }
+
+  .top-left-text {
+    transform: translateY(-6rem) !important;
   }
 }
