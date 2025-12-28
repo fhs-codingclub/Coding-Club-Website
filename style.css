@@ -1,6 +1,8 @@
 /* main background color for site is #427082 */
 body {
   color: #FFF;
+  margin: 0;          /* Added to prevent scrollbar issues */
+  overflow-x: hidden; /* Added to prevent horizontal scroll */
 }
 
 /* Profile Picture Sizes*/
@@ -19,26 +21,113 @@ body {
   transition: transform 0.2s ease;
 }
 
+/* --- HERO SECTION --- */
 
-.top-left {
-  position: absolute;   /* keep it anchored in the hero */
-  top: 0;
-  left: 0;
-  display: flex;        /* flex row */
-  align-items: center;  /* vertical alignment vs logo */
-  gap: 0.5rem;             /* space between logo and text */
-  padding: 0.75rem;        /* inset from top/left edges */
+.Hero_image {           
+  position: relative;
+  margin-bottom: 40px;  
+  overflow: hidden;
 }
 
+.Hero_image img {   
+  width: 100%;
+  height: 60vh;
+  min-height: 420px;
+  max-height: 650px;
+  object-fit: cover; 
+  display: block;
+}
+
+@media (min-width: 901px) {
+  .Hero_image {
+    height: 100vh;
+    margin-bottom: 0;
+  }
+
+  .Hero_image img {
+    height: 100%;
+    min-height: 100vh;
+    max-height: none;
+  }
+}
+
+.hero_overlay {
+  position: absolute;
+  inset: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;      
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45));
+  
+  /* FIX: Ensure padding accounts for the logo on mobile */
+  box-sizing: border-box; 
+}
+
+/* FIX: Top Left Branding */
+.top-left {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  display: flex;        
+  align-items: center;  
+  gap: 0.5rem;             
+  padding: 16px;
+  z-index: 10;          /* Ensures it stays above the overlay text */
+}
+
+.Hero_image .top-left {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+}
+
+@media (max-width: 600px) {
+  .top-left {
+    padding: 10px;
+  }
+}
+
+.top-left img {
+  width: clamp(40px, 8vw, 90px);
+  height: clamp(40px, 8vw, 90px);
+  object-fit: contain;  
+}
+
+.top-left-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  line-height: 1.1;       
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: bold;      /* Added for readability */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Added to pop against background */
+}
+
+.top-left-text p {
+  margin: 0;              
+}
 
 .header {
     text-align: center;
-    
+    font-size: clamp(1rem, 2.8vw, 1.6rem);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Added legibility */
 }
 
 .Title {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 3.75rem);     
+    font-size: clamp(2rem, 5vw, 3.75rem);   
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Added legibility */
 }
 
 .container {
@@ -67,32 +156,11 @@ h2 {
     padding: 12px;
 }
 
-.Hero_image {           
-  position: relative;
-  margin-bottom: 40px;  
-  overflow: hidden;
-}
-
-.Hero_image img {   
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* Prevents cutting of images */
-  display: block;
-}
-
-.hero_overlay {
-  position: absolute;
-  inset: 0;
-  padding: 20% 24px 24px;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45));
-}
 
 .hero_overlay h1,
 .hero_overlay h2 {
-  margin: 0;                /* remove default large margins */
-  line-height: 1.2;         /* tighter text */
+  margin: 0;                
+  line-height: 1.2;         
 }
 
 .slide-up {
@@ -110,25 +178,8 @@ h2 {
     }
 }
 
-.top-left img {
-  width: clamp(40px, 8vw, 90px);
-  height: clamp(40px, 8vw, 90px);
-  object-fit: contain;  /* keep proportions */
-  /* remove any padding-left here */
-}
 
-.top-left-text {
-  position: static;       /* remove absolute */
-  text-align: center;
-  display: flex;
-  flex-direction: column; /* stack FHS / Coding Club */
-  line-height: 1.1;       /* tighten line spacing */
-  font-size: clamp(1rem, 3vw, 1.5rem);
-}
-
-.top-left-text p {
-  margin: 0;              /* remove default paragraph margins */
-}
+/* --- ANNOUNCEMENT CAROUSEL --- */
 
 #announcementCarousel .card {
   border: none;
@@ -141,23 +192,22 @@ h2 {
   min-width: auto;
 }
 
+/* FIX: Drastically reduced font sizes here so cards don't explode */
 #announcementCarousel .card-title {
   font-weight: bold;
+  font-size: 3.0rem;
 }
 
 #announcementCarousel .card-text {
   font-size: 2.5rem;
 }
 
-#announcementCarousel .card-title {
-    font-size: 3.0rem;
-}
 
 .background {
   background-color: #427082;
 }
 
-/* Zigzag Timeline Styles - Horizontal Layout */
+/* --- ZIGZAG TIMELINE (Unchanged) --- */
 .zigzag-timeline {
   position: relative;
   display: flex;
@@ -170,7 +220,6 @@ h2 {
   min-height: 300px;
 }
 
-/* Horizontal line through the middle */
 .zigzag-timeline::before {
   content: '';
   position: absolute;
@@ -184,7 +233,6 @@ h2 {
   border-radius: 2px;
 }
 
-/* Each event container */
 .zigzag-timeline .event {
   position: relative;
   min-width: 220px;
@@ -197,7 +245,6 @@ h2 {
   justify-content: center;
 }
 
-/* Odd events (above the line) */
 .zigzag-timeline .event:nth-child(odd) {
   padding-bottom: calc(12% + 1px);
   padding-top: 0;
@@ -205,7 +252,6 @@ h2 {
   justify-content: flex-end;
 }
 
-/* Even events (below the line) */
 .zigzag-timeline .event:nth-child(even) {
   padding-top: calc(12% + 1px);
   padding-bottom: 0;
@@ -214,7 +260,6 @@ h2 {
   justify-content: flex-end;
 }
 
-/* The connecting dot on the timeline */
 .zigzag-timeline .event .dot {
   position: absolute;
   width: 18px;
@@ -229,23 +274,19 @@ h2 {
   transform: translateX(-50%);
 }
 
-/* Position dot on the timeline for odd events (above) */
 .zigzag-timeline .event:nth-child(odd) .dot {
   bottom: calc(50% + 1px);
 }
 
-/* Position dot on the timeline for even events (below) */
 .zigzag-timeline .event:nth-child(even) .dot {
   top: calc(50% + 1px);
 }
 
-/* Hover effect on dot */
 .zigzag-timeline .event:hover .dot {
   transform: translateX(-50%) scale(1.4);
   box-shadow: 0 0 0 5px rgba(66, 112, 130, 0.4);
 }
 
-/* Event card styling - transparent with subtle backdrop */
 .zigzag-timeline .event .card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
@@ -285,86 +326,7 @@ h2 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Phones */
-@media (max-width: 576px) {
-  .zigzag-timeline {
-    padding: 40px 10px;
-  }
-
-  #announcementCarousel .card {
-    min-height: 75px;
-  }
-
-  #announcementCarousel .card-text {
-    font-size: 0.1rem;
-  }
-}
-
-/* Media Queries for Responsiveness */
-
-/* For tablets and smaller screens (max-width: 900px) */
-@media (max-width: 900px) {
-  .Title {
-    font-size: 2.5rem;
-  }
-  .top-left img {
-    width: 3rem;
-    height: 3rem;
-  }
-  .top-left-text {
-    font-size: 1.1rem;
-  }
-  #announcementCarousel .card {
-    min-width: 200px;
-    max-width: 95vw;
-  }
-  #announcementCarousel .card-title {
-    font-size: 1.2rem;
-  }
-  #announcementCarousel .card-text {
-    font-size: 1rem;
-  }
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px; /* Add spacing between items */
-  }
-}
-
-/* For phones and smaller screens (max-width: 600px) */
-@media (max-width: 600px) {
-  .Title {
-    font-size: 1.5rem;
-  }
-  .top-left img {
-    width: 2rem;
-    height: 2rem;
-  }
-  .top-left-text {
-    font-size: 0.9rem;
-  }
-  .Hero_image img {
-    height: 30vh;
-    max-height: 30vh;
-    min-height: 120px;
-  }
-  #announcementCarousel .card {
-    min-width: 120px;
-    max-width: 99vw;
-  }
-  #announcementCarousel .card-title {
-    font-size: 1rem;
-  }
-  #announcementCarousel .card-text {
-    font-size: 0.8rem;
-  }
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
+/* --- MEMBER CARDS --- */
 
 .member-card {
   position: relative;
@@ -384,14 +346,12 @@ h2 {
   max-width: 340px; 
 }
 
-
 .member-card img {
   width: 100%; 
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 .member-card .info-overlay {
   margin-top: 10px;
@@ -416,8 +376,110 @@ h2 {
   justify-content: center; 
 }
 
-@media (max-width: 768px) {
+
+/* --- RESPONSIVE QUERIES --- */
+
+/* Phones */
+@media (max-width: 576px) {
+  .zigzag-timeline {
+    padding: 40px 10px;
+  }
+
+  #announcementCarousel .card {
+    min-height: 75px;
+  }
+}
+
+/* Tablet (max-width: 900px) */
+@media (max-width: 900px) {
+  .Title {
+    font-size: 2.5rem;
+  }
+  .Hero_image img {
+    height: 50vh;
+    min-height: 320px;
+    max-height: 520px;
+  }
+  .top-left img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .top-left-text {
+    font-size: 1.1rem;
+  }
+  #announcementCarousel .card {
+    min-width: 200px;
+    max-width: 95vw;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; 
+  }
+}
+
+/* Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+  .Title {
+    font-size: 1.8rem; /* Smaller to prevent overlap */
+  }
+
+  .Hero_image img {
+    height: 38vh;
+    min-height: 220px;
+    max-height: 380px;
+  }
+  
+  .top-left img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .top-left-text {
+    font-size: 0.9rem;
+  }
+
+  .hero_overlay {
+    justify-content: center;
+    padding: 88px 12px 16px;
+  }
+  
+  #announcementCarousel .card {
+    width: 100%;
+    min-width: 120px;
+    max-width: 99vw;
+  }
+  
+  #announcementCarousel .card-title {
+    font-size: 1.2rem;
+  }
+  
+  #announcementCarousel .card-text {
+    font-size: 0.9rem; 
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Timeline Adjustments */
+  .zigzag-timeline .event {
+    min-width: 180px;
+    max-width: 200px;
+  }
+  .zigzag-timeline .event:nth-child(odd) {
+    padding-bottom: calc(8% + 1px);
+  }
+  .zigzag-timeline .event:nth-child(even) {
+    padding-top: calc(8% + 1px);
+  }
+  
+  /* Member Cards */
   .member-card {
-    flex: 1 1 calc(45% - 20px); 
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }

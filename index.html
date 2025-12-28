@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="Fallbrook_logo.png">
     <meta name="keywords" content="Coding Club, Fallbrook High School Coding Club, Coding Club Website">
@@ -16,21 +16,52 @@
 <body class="background" style="color: #ccc;">
     <div class="Hero_image">
         <img src="Images/Mr.Longmore_Erik_Angel.jpg"alt="Mr.Longmore, Erik, and Angel at CipherHacks 2025">
-        <div class="hero_overlay">
-            <div class="top-left">
-                <a href="/">
-                    <img src="Images/Fallbrook_logo.png" alt="Fallbrook High School Logo">
-                </a>
-                <div class="top-left-text">
-                    <p>FHS</p>
-                    <p>Coding Club</p>
-                </div>
+        <div class="top-left" style="position:absolute;top:0;left:0;z-index:9999;padding:16px;">
+            <a href="/">
+                <img src="Images/Fallbrook_logo.png" alt="Fallbrook High School Logo">
+            </a>
+            <div class="top-left-text">
+                <p>FHS</p>
+                <p>Coding Club</p>
             </div>
+        </div>
+        <div class="hero_overlay">
             <h1 class="Title slide-up">FHS Coding Club</h1>
             <h2 class="header slide-up">Build real projects, learn practical skills, and connect with others interested in Tech.</h2>
             <a href="https://discord.gg/3hvANKnskW" class="btn btn-primary mt-3 hero_button" role="button">Join the Discord</a>
         </div>
     </div>
+        
+        <!-- Why Join -->
+        <section class="container my-5">
+            <h2 class="text-white text-center mb-4">Why Join FHS Coding Club?</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card h-100" style="background-color:#427082;border:none;color:#fff;">
+                        <div class="card-body">
+                            <h5 class="card-title">No Experience Required</h5>
+                            <p class="card-text">Learn coding, problem solving, and collaboration, no matter your skill level</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100" style="background-color:#427082;border:none;color:#fff;">
+                        <div class="card-body">
+                            <h5 class="card-title">Build Real Projects</h5>
+                            <p class="card-text">Create websites, tools, and games that you can show on GitHub, resumes, and college apps.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100" style="background-color:#427082;border:none;color:#fff;">
+                        <div class="card-body">
+                            <h5 class="card-title">Your Ideas Matter</h5>
+                            <p class="card-text">Being a small club we can give you real mentorship, leadership oppurtunites and a place to grow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="container">
             <div class="content">
                 <div id="announcementCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
@@ -38,36 +69,11 @@
                         <div class="carousel-item active">
                             <div class="card text-center p-3">
                                 <h5 class="card-title">Meetings</h5>
-                                <p class="card-text">Meetings at 3:00pm after school!</p>
+                                <p class="card-text">Wednesday, after school!</p>
                             </div>
-                        </div>
-
-                <section id="club-schedule" style="padding: 40px 0;">
-                    <div class="container" style="max-width: 100%; margin: auto; text-align: center;">
-                        <h2 style="font-size: 2rem; margin-bottom: 30px; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Club Schedule & Events</h2>
-
-                        <div class="zigzag-timeline">
-                            <!-- Event 1 - Left Side -->
-                            <div class="event">
-                                <div class="dot"></div>
-                                <div class="card">
-                                    <h3>Regular Meetings</h3>
-                                    <p>Every Wednesday<br>3:00pm to 4:30pm</p>
-                                </div>
-                            </div>
-
-                            <!-- Event 2 - Right Side -->
-                            <div class="event">
-                                <div class="dot"></div>
-                                <div class="card">
-                                    <h3>Daily Discord Coding Hangouts</h3>
-                                    <p>Every day at 7:30pm!</p>
-                                </div>
-                            </div>
-                            <!-- Add more Events here -->
                         </div>
                     </div>
-                </section>
+                </div>
 
                 <!--Pictures/Text for our projects and acheivements-- (copy past this block for more projects)-->
                     <div class="title text-center">
